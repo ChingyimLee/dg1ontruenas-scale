@@ -78,3 +78,4 @@ reboot
  # 安装完成后，输入 vainfo查看解码能力
 补充：24.04 beta1只能点亮强行驱动。但是编解码会报错。intel的backports驱动还不支持6.6内核下的编译，会报错。挺蛋疼的
 ```
+本项目摘自scjtqs大作，请尊重原作者版权，侵删，原网址，：https://jose.scjtqs.com/truenas/2024-02-13-2011/truenas-scale-23-10-%E7%BC%96%E8%AF%91intel-gpu-i915-backports%E9%A9%B1%E5%8A%A8-for-dg1.html
