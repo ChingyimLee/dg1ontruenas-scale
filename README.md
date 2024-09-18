@@ -31,7 +31,7 @@ apt install dkms make debhelper devscripts build-essential flex bison mawk dh-dk
 ```
 # 开启dg1支持
 vim /etc/modprobe.d/dkms.conf
-# 添加两行行 
+# 添加两行
 options i915 force_probe=4908
 options i915 enable_guc=3
 # 然后重启
@@ -75,13 +75,13 @@ apt-get install  intel-media-va-driver-non-free
 # 1.安装 libva
 apt-get install git cmake pkg-config meson libdrm-dev automake libtool  #安装依赖
 git clone --branch 2.14.0 https://github.com/intel/libva.git /root/libva  #克隆指定版本的libva
-cd root/libva
+cd /root/libva
 ./autogen.sh --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu
 make -j`(nproc)`
 make install
 # 安装 gmmlib (libigdgmm-dev)
 git clone --branch intel-gmmlib-22.3.20 https://github.com/intel/gmmlib.git /root/gmmlib  #克隆指定版本的 gmmlib
-cd root/gmmlib
+cd /root/gmmlib
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=/usr/ -DCMAKE_INSTALL_LIBDIR=/usr/lib/x86_64-linux-gnu -DCMAKE_BUILD_TYPE=ReleaseInternal .. 
 make -j`(nproc)`
@@ -89,14 +89,18 @@ make install
 # 安装 intel-media-driver
 apt install autoconf libtool libdrm-dev xorg-dev  libx11-dev libgl1-mesa-glx libva-dev
 git clone --branch intel-media-24.2.5 https://github.com/intel/media-driver.git /root/media-driver  #克隆指定版本的 intel-media-driver
-cd media-driver
+cd /root/media-driver
 mkdir build_media && cd build_media
 export ENABLE_PRODUCTION_KMD=ON  #不懂具体干什么的
 cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=/usr/lib/x86_64-linux-gnu ..
 make -j`$(nproc)` -e ENABLE_PRODUCTION_KMD=ON  #本条负载很大，若发生内存占满，请自行缩小线程数，如单线程```make -j1 -e ENABLE_PRODUCTION_KMD=ON```，不懂make后具体干什么的
 make install
 ```
-补充：24.04 beta1只能点亮强行驱动。但是编解码会报错。intel的backports驱动还不支持6.6内核下的编译，会报错。挺蛋疼的
+# 检查驱动是否正确安装
+```
+ls /usr/lib/x86_64-linux-gnu/dri/iHD_drv_video.so
+```
+如果该文件存在，说明 intel-media-driver 已正确安装
 ## 七、安装完成后，输入 vainfo查看解码能力
 ```
 apt install vainfo
