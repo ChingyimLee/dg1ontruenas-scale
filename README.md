@@ -108,3 +108,5 @@ ls /usr/lib/x86_64-linux-gnu/dri/iHD_drv_video.so
 apt install vainfo
 ```
 安装完成后，输入 vainfo查看解码能力
+## 八、测试gpu负载
+如果需要检测 GPU 的利用率，可以（在 Docker 外即可）安装 intel-gpu-tools 软件包。它提供了 intel_gpu_top 命令，可以实时查看 GPU 的各个组件的利用率。不过在我的测试中，无论有多少负载，GPU 的 Video 组件利用率都显示得很高，似乎没有太多参考的价值。
