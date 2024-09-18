@@ -79,14 +79,16 @@ cd /root/libva
 ./autogen.sh --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu
 make -j`(nproc)`
 make install
-# 安装 gmmlib (libigdgmm-dev)
+
+# 2.安装 gmmlib (libigdgmm-dev)
 git clone --branch intel-gmmlib-22.3.20 https://github.com/intel/gmmlib.git /root/gmmlib  #克隆指定版本的 gmmlib
 cd /root/gmmlib
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=/usr/ -DCMAKE_INSTALL_LIBDIR=/usr/lib/x86_64-linux-gnu -DCMAKE_BUILD_TYPE=ReleaseInternal .. 
 make -j`(nproc)`
 make install
-# 安装 intel-media-driver
+
+# 3.安装 intel-media-driver
 apt install autoconf libtool libdrm-dev xorg-dev  libx11-dev libgl1-mesa-glx libva-dev
 git clone --branch intel-media-24.2.5 https://github.com/intel/media-driver.git /root/media-driver  #克隆指定版本的 intel-media-driver
 cd /root/media-driver
