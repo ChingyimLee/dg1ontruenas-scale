@@ -25,7 +25,7 @@ zfs set readonly=off [dataset]
 #开启开发者模式
 install-dev-tools
 # 安装依赖
-sudo apt install dkms make debhelper devscripts build-essential flex bison mawk dh-dkms
+apt install dkms make debhelper devscripts build-essential flex bison mawk dh-dkms
 ```
 安装完以上依赖后，```/etc/modprobe.d```路径内应该创建了dkms.conf文件，需要添加以下两行，作用是强制使用驱动
 ```
