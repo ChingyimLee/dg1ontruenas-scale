@@ -75,13 +75,13 @@ apt-get install  intel-media-va-driver-non-free
 # 1.安装 libva
 apt-get install git cmake pkg-config meson libdrm-dev automake libtool  #安装依赖
 git clone --branch 2.14.0 https://github.com/intel/libva.git /root/libva  #克隆指定版本的libva
-cd libva
+cd root/libva
 ./autogen.sh --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu
 make -j`(nproc)`
 make install
 # 安装 gmmlib (libigdgmm-dev)
 git clone --branch intel-gmmlib-22.3.20 https://github.com/intel/gmmlib.git /root/gmmlib  #克隆指定版本的 gmmlib
-cd gmmlib
+cd root/gmmlib
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=/usr/ -DCMAKE_INSTALL_LIBDIR=/usr/lib/x86_64-linux-gnu -DCMAKE_BUILD_TYPE=ReleaseInternal .. 
 make -j`(nproc)`
@@ -89,10 +89,10 @@ make install
 # 安装 intel-media-driver
 apt install autoconf libtool libdrm-dev xorg-dev  libx11-dev libgl1-mesa-glx libva-dev
 git clone --branch intel-media-24.2.5 https://github.com/intel/media-driver.git /root/media-driver  #克隆指定版本的 intel-media-driver
-cd media-driver && mkdir build_media
-cd build_media
+cd media-driver
+mkdir build_media && cd build_media
 export ENABLE_PRODUCTION_KMD=ON  #不懂具体干什么的
-cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=/usr/lib/x86_64-linux-gnu ../media-driver
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=/usr/lib/x86_64-linux-gnu ..
 make -j`$(nproc)` -e ENABLE_PRODUCTION_KMD=ON  #本条负载很大，若发生内存占满，请自行缩小线程数，如单线程```make -j1 -e ENABLE_PRODUCTION_KMD=ON```，不懂make后具体干什么的
 make install
 ```
