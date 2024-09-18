@@ -91,9 +91,9 @@ apt install autoconf libtool libdrm-dev xorg-dev  libx11-dev libgl1-mesa-glx lib
 git clone --branch intel-media-24.2.5 https://github.com/intel/media-driver.git /root/media-driver  #克隆指定版本的 intel-media-driver
 cd /root/media-driver
 mkdir build_media && cd build_media
-export ENABLE_PRODUCTION_KMD=ON  #不懂具体干什么的
+export ENABLE_PRODUCTION_KMD=ON
 cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=/usr/lib/x86_64-linux-gnu ..
-make -j`$(nproc)` -e ENABLE_PRODUCTION_KMD=ON  #本条负载很大，若发生内存占满，请自行缩小线程数，如单线程```make -j1 -e ENABLE_PRODUCTION_KMD=ON```，不懂make后具体干什么的
+make -j`$(nproc)` -e ENABLE_PRODUCTION_KMD=ON  #本条负载很大，若发生内存占满，请自行缩小线程数，如单线程```make -j1 -e ENABLE_PRODUCTION_KMD=ON```
 make install
 ```
 # 检查驱动是否正确安装
