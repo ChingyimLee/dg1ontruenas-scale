@@ -10,6 +10,7 @@ truenas scale 从24.04 beta1开始，/usr/bin下的东西变成了只读的了�
 install-dev-tools
 ```
 用root用户，在shell下输入上面的命令开启
+
 ~~### 2.Encountered Read-only file system problem, unable to create anything~~
 ~~如果你执行什么命令，出现了系统只读问题。执行下面命令：~~
 ```
