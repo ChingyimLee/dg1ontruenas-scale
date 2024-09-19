@@ -1,5 +1,5 @@
 # truenas scale 24.04(linux-6.6) 编译intel-gpu-i915-backports驱动 for dg1 驱动
-***免责声明：本过程基于```https://jose.scjtqs.com/truenas/2024-02-13-2011/truenas-scale-23-10-%E7%BC%96%E8%AF%91intel-gpu-i915-backports%E9%A9%B1%E5%8A%A8-for-dg1.html```改编，如有启发请到原作者处表达感谢***
+***免责声明：本过程基于```https://jose.scjtqs.com/truenas/2024-02-13-2011/truenas-scale-23-10-%E7%BC%96%E8%AF%91intel-gpu-i915-backports%E9%A9%B1%E5%8A%A8-for-dg1.html```改编，并参考了```https://harrychen.xyz/2024/04/01/accelerate-video-encoding-with-intel-dg1-on-linux-6.6/```,如有启发请到原作者处表达感谢***
 >买的皮蛋熊大大推荐的的80eu的全高被动散热卡（据说兼容性最佳，实测ASRockRACK E3C246D4U2-2T with CC150打开Above4G，关闭CSM即可点亮）
 ## 一、前置准备
 ### 1.truenas scale 24.04 开启apt 开发者模式(Developer Mode)
@@ -10,16 +10,17 @@ truenas scale 从24.04 beta1开始，/usr/bin下的东西变成了只读的了�
 install-dev-tools
 ```
 用root用户，在shell下输入上面的命令开启
-~~### 2.Encountered Read-only file system problem, unable to create anything
-如果你执行什么命令，出现了系统只读问题。执行下面命令：
+~~### 2.Encountered Read-only file system problem, unable to create anything~~
+~~如果你执行什么命令，出现了系统只读问题。执行下面命令：~~
 ```
 zfs get readonly
 ```
-查看哪些路径是只读的。需要把 on改成off
+~~查看哪些路径是只读的。需要把 on改成off~~
 ```
 zfs set readonly=off [dataset]
 ```
-例如 zfs set readonly=off boot-pool/ROOT/24.04-BETA.1~~
+~~例如 zfs set readonly=off boot-pool/ROOT/24.04-BETA.1~~
+~~
 ## 二、安装依赖
 ```
 #开启开发者模式
