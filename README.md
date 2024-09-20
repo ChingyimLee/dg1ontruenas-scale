@@ -76,7 +76,7 @@ apt-get install  intel-media-va-driver-non-free
 ```
 # 1.安装 libva
 apt-get install git cmake pkg-config meson libdrm-dev automake libtool  #安装依赖
-git clone --branch 2.14.0 https://github.com/intel/libva.git /root/libva  #克隆指定版本的libva
+git clone --branch 2.22.0 https://github.com/intel/libva.git /root/libva  #克隆指定版本的libva
 cd /root/libva
 ./autogen.sh --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu
 make -j`(nproc)`
