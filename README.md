@@ -51,11 +51,11 @@ git clone https://github.com/intel-gpu/intel-gpu-i915-backports -b backport/main
 ```
 cd intel-gpu-i915-backports
 ```
-### 4.2开始编译
+### 4.2.开始编译
 ```
 make i915dkmsdeb-pkg
 ```
-### 4.3编译完成后，找到deb包。deb包在上层目录里面
+### 4.3.编译完成后，找到deb包。deb包在上层目录里面
 ```
 cd ../
 ls
