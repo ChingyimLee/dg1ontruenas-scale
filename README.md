@@ -47,12 +47,16 @@ cd /mnt/Applications/DG1
 git clone https://github.com/intel-gpu/intel-gpu-i915-backports -b backport/main
 ```
 ## 4.编译源码生成deb包并安装
+### 4.1.进入源码目录
 ```
-# 进入源码目录
 cd intel-gpu-i915-backports
-# 开始编译
+```
+### 4.2开始编译
+```
 make i915dkmsdeb-pkg
-# 编译完成后，找到deb包。deb包在上层目录里面
+```
+### 4.3编译完成后，找到deb包。deb包在上层目录里面
+```
 cd ../
 ls
 # 例如 intel-i915-dkms_1.23.9.11.231003.15+i1-1_all.deb
@@ -60,7 +64,7 @@ cp intel-i915-dkms_1.23.9.11.231003.15+i1-1_all.deb /tmp
 cd /tmp
 apt install ./intel-i915-dkms_1.23.9.11.231003.15+i1-1_all.deb  # 若无法安装，因为文件系统只读，用mount -o remount,rw /改为可读写。此步安装后，需要重启以重新加载。
 ```
->***p.s. 以上3、4步，也许可以藉以添加intel官方ubuntu仓库拉取安装（节选自《Ubuntu 22.04 下修改驱动使 Intel DG1 可以在 Jellyfin 下解码》[icarusradio](https://icarusradio.github.io/guides/ubuntu-dg1-jellyfin.html)）***
+>***p.s. 以上3、4步，也许可以藉以添加intel官方ubuntu仓库拉取安装（节选自[```《Ubuntu 22.04 下修改驱动使 Intel DG1 可以在 Jellyfin 下解码》```](https://icarusradio.github.io/guides/ubuntu-dg1-jellyfin.html))***
 >## (1)添加 Intel 官方 Ubuntu 仓库 
 >1️⃣首先先添加 Intel 的 GPG 密钥：```wget -qO - https://repositories.intel.com/gpu/intel-graphics.key | sudo gpg --dearmor --output /usr/share/keyrings/intel-graphics.gpg``` \
 >2️⃣添加 LTS或Rolling仓库： \
