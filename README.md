@@ -74,7 +74,7 @@ apt install ./intel-i915-dkms_1.23.9.11.231003.15+i1-1_all.deb  # 若无法安�
 ```echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy client" | sudo tee /etc/apt/sources.list.d/intel-gpu-jammy.list``` \
 >3️⃣更新仓库： \
 ```apt update```
->## (2)安装 DKMS \
+>## (2)安装 DKMS
 >Icarus_Radio大神曾在chiphell回帖提到，“估计要降。虽然教程里说 DKMS 和内核版本不相关，但是我试过好几个版本不用他指定的内核都会报错。”，但实际上经我在6.6内核的truenas 24.4.2.2版本测试，安装编译对内核已经没有要求 \
 ```sudo apt install intel-i915-dkms intel-fw-gpu```
 >安装完成后关闭机器。物理机装上 DG1，如果使用核显安装系统，请 BIOS 内选择仅独立显卡工作来关闭核显；如果使用亮机卡安装系统，请拆下亮机卡。请确保不要把 DG1 连上显示器，因为之前某个版本删除了图形输出能力，只支持硬件解码，所以连上也没有用。虚拟机上直通 DG1，并将显示关闭，理由同物理机，PVE 自带的控制台也是看不了显示输出的。
