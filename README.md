@@ -203,27 +203,27 @@ apt install vainfo
 ## 9.TrueNAS-SCALE安装docker
 在 TrueNAS SCALE 上，Docker 不像在其他 Linux 发行版上那样直接安装。TrueNAS SCALE 本身是基于 Debian 的，但它主要依赖 K3S 和 Helm 来管理容器。如果你真的需要在 TrueNAS SCALE 上使用 Docker，可以考虑以下方法：
 ### 9.1. 使用 Shell 安装 Docker，虽然不推荐，但如果你确实需要安装 Docker，可以尝试以下命令：
-# 更新包列表
+### 9.1.1.更新包列表
 ```
 sudo apt update
 ```
-# 安装必要的包
+#### 9.1.2.安装必要的包
 ```
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 ```
-# 添加 Docker 的官方 GPG 密钥
+#### 9.1.3.添加 Docker 的官方 GPG 密钥
 ```
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 ```
-# 添加 Docker 的稳定版本仓库
+#### 9.1.4.添加 Docker 的稳定版本仓库
 ```
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 ```
-# 再次更新包列表
+#### 9.1.5.再次更新包列表
 ```
 sudo apt update
 ```
-# 安装 Docker
+#### 9.1.6.安装 Docker
 ```
 sudo apt install -y docker-ce
 ```
